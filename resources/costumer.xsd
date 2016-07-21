@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     
+    <xs:element name="Phone">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="xs:string" />
+                <xs:element name="number" type="xs:string"  />           
+            </xs:sequence>            
+        </xs:complexType>
+    </xs:element>
+     
+    <xs:element name="Costumer">
+        <xs:annotation>
+            <xs:documentation>Costumer Details</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>            
+            <xs:sequence>
+                <xs:element name="firstName" type="xs:string" />
+                <xs:element name="lastName" type="xs:string" />
+                <xs:element name="sex">
+                 	<xs:simpleType>
+					    <xs:restriction base="xs:string">
+					        <xs:maxLength value="1"/>					      
+					    </xs:restriction>
+				  	</xs:simpleType>
+				</xs:element>
+                <xs:element name="email" type="xs:string" />
+                <xs:element name="dateBorn" type="xs:date" />
+                <xs:element name="Phones">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="Phone"  minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="idCostumer" type="xs:int" />
+        </xs:complexType>
+    </xs:element>
+ 
+     
+</xs:schema>
