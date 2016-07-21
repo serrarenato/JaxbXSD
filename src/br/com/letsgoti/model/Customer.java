@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "Costumer")
 @XmlType(propOrder = { "firstName", "lastName", "sex", "email", "dateBorn", "phones"  })
-public class Costumer {
+public class Customer {
 	
 	private String firstName;	 
 	private String lastName;

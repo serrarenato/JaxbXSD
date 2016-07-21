@@ -14,7 +14,7 @@ import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
-import br.com.letsgoti.model.Costumer;
+import br.com.letsgoti.model.Customer;
 import br.com.letsgoti.model.Phone;
 
 public class Main {
@@ -27,7 +27,7 @@ public class Main {
 		listPhones.add(new Phone("fixo","33331111"));
 		listPhones.add(new Phone("recado","33332222"));
 		
-		Costumer costumer = new Costumer();
+		Customer costumer = new Customer();
 		costumer.setDateBorn(new Date("09/05/2015"));
 		costumer.setEmail("joao@gmail.com");
 		costumer.setFirstName("Joao");
@@ -41,7 +41,7 @@ public class Main {
 			SchemaFactory sf = SchemaFactory
 		                .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		    Schema schema = sf.newSchema(schemaValidation.getSchemaFile());
-			JAXBContext context = JAXBContext.newInstance(Costumer.class);
+			JAXBContext context = JAXBContext.newInstance(Customer.class);
 			Marshaller m = context.createMarshaller();
 			m.setSchema(schema);
 			
@@ -57,7 +57,7 @@ public class Main {
     private File getSchemaFile() {
         // Get file from resources folder
         ClassLoader classLoader = getClass().getClassLoader();
-        File schemaFile = new File(classLoader.getResource("costumer.xsd").getFile());
+        File schemaFile = new File(classLoader.getResource("customer.xsd").getFile());
         return schemaFile;
     }
 
